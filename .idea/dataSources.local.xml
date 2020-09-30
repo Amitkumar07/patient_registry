@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="patient_registry_development@localhost" uuid="57b2a650-cd35-4b93-bdc3-de04e83254f6">
+      <database-info product="PostgreSQL" version="12.4" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>amit</user-name>
+      <introspection-schemas>patient_registry_development:public</introspection-schemas>
+    </data-source>
+    <data-source name="patient_registry_test@localhost" uuid="c2a3c3ca-449c-4d98-89e1-2c24f2640deb">
+      <database-info product="PostgreSQL" version="12.4" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>amit</user-name>
+      <introspection-schemas>patient_registry_test:public</introspection-schemas>
+    </data-source>
+  </component>
+</project>

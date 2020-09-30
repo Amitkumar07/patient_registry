@@ -22,6 +22,7 @@ pickle-email-*.html
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+config/database.yml
 
 # Ignore uploaded files in development.
 /storage/*
@@ -82,3 +83,10 @@ yarn-debug.log*
 !/storage/.keep
 
 .idea/workspace.xml
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
