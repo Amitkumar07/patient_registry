@@ -1,3 +1,17 @@
+
+<div class="row">
+  <div class="col-12">
+    <a href="/template/patient.csv" target="_blank">CSV Template</a> |
+    <a href="/template/patient.xml" target="_blank">XML Template</a> |
+    <a href="/template/patient.json" target="_blank">JSON Template</a>
+  </div>
+  <div class="col-12">
+    <a href="/sample/patient.csv" target="_blank">CSV Sample</a> |
+    <a href="/sample/patient.xml" target="_blank">XML Sample</a> |
+    <a href="/sample/patient.json" target="_blank">JSON Sample</a>
+  </div>
+</div>
+
 <%= form_for @patient, as: :import, url: '/save/patient', method: 'post', html: { class: "", id: "" } do |f| %>
     <div class="form-group">
   <%= f.label :file, "Upload File" %>

@@ -1,26 +1,26 @@
 <div class="form-group">
   <label for="first_name">First Name</label>
-  <%= f.text_field :first_name, value: f.object.first_name, autofocus: true,autocomplete: false, required: '', class: 'form-control'%>
+  <%= f.text_field :first_name, value: f.object.first_name, autofocus: true,autocomplete: false, required: '',maxlength: "50", class: 'form-control'%>
 </div>
 
 <div class="form-group">
   <label for="last_name">Last Name</label>
-  <%= f.text_field :last_name, value: f.object.last_name, autocomplete: false, required: '', class: 'form-control'%>
+  <%= f.text_field :last_name, value: f.object.last_name, autocomplete: false, required: '',maxlength: "50", class: 'form-control'%>
 </div>
 
 <div class="form-group">
   <label for="email">Email</label>
-  <%= f.email_field :email,value: f.object.email, autocomplete: false, required: '', class: 'form-control'%>
+  <%= f.email_field :email,value: f.object.email, autocomplete: false, required: '',maxlength: "50", class: 'form-control'%>
 </div>
 
 <div class="form-group">
   <label for="mrn">Medical Record Number</label>
-  <%= f.text_field :mrn, value: f.object.mrn, autocomplete: false, class: 'form-control'%>
+  <%= f.text_field :mrn, value: f.object.mrn, autocomplete: false, maxlength: "12",pattern: "[0-9]+", placeholder: '1234567678', class: 'form-control'%>
 </div>
 
 <div class="form-group">
   <label for="mrn">Zip</label>
-  <%= f.text_field :zip,value: f.object.zip, autocomplete: false, class: 'form-control'%>
+  <%= f.text_field :zip,value: f.object.zip, autocomplete: false, placeholder:'12345', maxlength: "5",minlength: "5", class: 'form-control'%>
 </div>
 
 <div class="form-group">
@@ -30,7 +30,7 @@
 
 <div class="form-group">
   <label for="mobile_number">Mobile number</label>
-  <%= f.text_field :mobile_number, autocomplete: false, required: '', class: 'form-control'%>
+  <%= f.text_field :mobile_number, autocomplete: false, required: '', maxlength: "12", pattern: "[0-9]+",placeholder: '1234567678', class: 'form-control'%>
 </div>
 <div class="form-group">
   <label for="mrn">Is insured?</label>
@@ -46,8 +46,11 @@
       No
     </label>
   </div>
-
 </div>
 <div class="form-group">
-  <%= f.submit "Save", class: 'btn btn-primary' %>
+  <label for="document">Medical records document</label>
+  <%= f.file_field :documents, multiple: true, class: 'form-control-file.'%>
+</div>
+<div class="form-group">
+  <%= f.submit "Save", class: 'btn btn-primary btn-lg btn-block' %>
 </div>

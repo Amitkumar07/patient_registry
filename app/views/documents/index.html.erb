@@ -1,0 +1,32 @@
+<div class="row mt-3">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <%= link_to "Add new record", new_patient_document_path(@patient), class:'btn btn-primary float-right ml-2' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered patient-list mt-3">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Cretaed at</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody id="patient-records">
+          <% if @documents %>
+              <%= render "list", documnets: @documents, patient: @patient %>
+          <% end %>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+

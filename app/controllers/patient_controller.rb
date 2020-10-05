@@ -1,6 +1,7 @@
 class PatientController < ApplicationController
 
   before_action :page,:search_service, only: [:index]
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
  LIMIT = 10
 
@@ -23,6 +24,7 @@ class PatientController < ApplicationController
       redirect_to patient_path(@patient.id)
     else
       flash[:alert] = 'Patient was not created successfully'
+      redirect_back(fallback_location: authenticated_root_path)
     end
   end
 
@@ -55,7 +57,7 @@ class PatientController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:first_name, :last_name, :email, :zip, :mrn, :dob, :mobile_number, :is_insured)
+    params.require(:patient).permit(:first_name, :last_name, :email, :zip, :mrn, :dob, :mobile_number, :is_insured, documents: [])
   end
 
   def search_params
@@ -68,6 +70,11 @@ class PatientController < ApplicationController
 
   def search_service
     @search_service = SearchService.new
+  end
+
+  def record_not_found
+    flash[:alert] = "Wrong Patient ID"
+    redirect_back(fallback_location: authenticated_root_path)
   end
 
 

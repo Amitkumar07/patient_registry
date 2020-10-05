@@ -1,6 +1,6 @@
 <%= form_tag(export_patient_path,method: :get, class: 'form-inline float-right')  do %>
     <div class="form-group mx-sm-3">
-      <%= select_tag 'file_format', options_for_select([['CSV', 'csv'],['JSON', 'json'],['XML', 'xml']], params[:is_insured]) , prompt: "Select", class: 'form-control' %>
+      <%= select_tag 'file_format', options_for_select([['CSV', 'csv'],['JSON', 'json'],['XML', 'xml']], params[:file_format]) , class: 'form-control' %>
     </div>
     <%= hidden_field_tag :term, params[:term] %>
     <%= hidden_field_tag :is_insured, params[:is_insured] %>

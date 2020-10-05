@@ -6,8 +6,8 @@
   <td><%= patient.mobile_number %></td>
   <td><%= patient.mrn %></td>
   <td><%= patient.is_insured ? 'Yes' : 'No' %></td>
-  <td><a href="patient/<%= patient.id %>/edit" class="link">Edit</a> |<%= link_to ' Destroy', patient_path(patient),
-                                                                                  data: {:confirm => 'Are you sure?'}, :method => :delete %>
+  <td><a href="patient/<%= patient.id %>/edit" class="link">Edit</a> | <a href="<%= patient_documents_path(patient) %>" >Documents</a> |<%= link_to ' Destroy', patient_path(patient),
+                                                                                  data: {:confirm => 'Are you sure?'}, :method => :delete %>  </td>
 
 </tr>
 <% end %>

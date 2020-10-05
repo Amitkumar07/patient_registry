@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_scope :user do
 
     authenticated :user do
-      root 'dashboard#index', as: :authenticated_root
+      root 'patient#index', as: :authenticated_root
     end
 
     unauthenticated do
@@ -16,7 +16,10 @@ Rails.application.routes.draw do
 
   root 'dashboard#index', as: :root
 
-  resources :patient
+  resources :patient do
+    resources :documents
+  end
+
 
   get 'import/patient', to: 'import#import_patient'
   post 'save/patient', to: 'import#save_patient'

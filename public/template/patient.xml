@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root headers='dob,email,first_name,is_insured,last_name,mobile_number,mrn,zip'>
+   <PatientInfo>
+      <dob><!--data--></dob>
+      <email><!--data--></email>
+      <first_name><!--data--></first_name>
+      <is_insured><!--data--></is_insured>
+      <last_name><!--data--></last_name>
+      <mobile_number><!--data--></mobile_number>
+      <mrn><!--data--></mrn>
+      <zip><!--data--></zip>
+   </PatientInfo>
+</root>

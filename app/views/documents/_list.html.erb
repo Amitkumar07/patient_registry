@@ -1,0 +1,10 @@
+<% documnets.each do |document| %>
+    <tr>
+      <td><%= document.filename %></td>
+      <td><%= document.created_at %></td>
+      <td><%= link_to ' Destroy', patient_document_path(patient,document), data: {:confirm => 'Are you sure?'}, :method => :delete %> |
+        <%= link_to 'Download', rails_blob_path(document, disposition: "attachment") %>
+      </td>
+
+    </tr>
+<% end %>

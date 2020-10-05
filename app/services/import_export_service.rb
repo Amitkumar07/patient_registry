@@ -5,8 +5,6 @@ class ImportExportService
     case file_type
       when "text/csv"
        column, value = CsvService.import(file)
-      when "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        column, value = ExcelService.import(file)
       when "application/json"
         column, value =  JsonService.import(file)
       when "text/xml"

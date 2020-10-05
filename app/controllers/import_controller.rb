@@ -8,8 +8,10 @@ class ImportController < ApplicationController
 
   def save_patient
     columns,values = @import_data_service.import_data(params[:import][:file])
-    Patient.import columns, values, validate: true, validate_uniqueness: true, track_validation_failures: true
+    patients = Patient.import columns, values, validate: true, validate_uniqueness: true, track_validation_failures: true
     Patient.reindex
+    flash[:notice] = "#{patients.ids.count} Patients were successfully created"
+    redirect_to patient_index_path
   end
 
   private

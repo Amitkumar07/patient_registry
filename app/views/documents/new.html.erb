@@ -1,0 +1,9 @@
+<%= form_for @document, as: :attachment, url: patient_documents_path(@patient), method: 'post', html: { class: "", id: "" } do |f| %>
+    <div class="form-group">
+      <label for="document">Medical records document</label>
+      <%= f.file_field :documents, multiple: true, class: 'form-control-file'%>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Save", class: 'btn btn-primary' %>
+    </div>
+<% end %>
