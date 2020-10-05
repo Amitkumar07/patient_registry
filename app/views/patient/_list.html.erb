@@ -1,0 +1,13 @@
+<tr class="hidden page-number" data-page="<%= page %>"></tr>
+<% patients.each do |patient| %>
+<tr>
+  <td><%= patient.full_name %></td>
+  <td><%= patient.email %></td>
+  <td><%= patient.mobile_number %></td>
+  <td><%= patient.mrn %></td>
+  <td><%= patient.is_insured ? 'Yes' : 'No' %></td>
+  <td><a href="patient/<%= patient.id %>/edit" class="link">Edit</a> |<%= link_to ' Destroy', patient_path(patient),
+                                                                                  data: {:confirm => 'Are you sure?'}, :method => :delete %>
+
+</tr>
+<% end %>

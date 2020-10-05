@@ -30,4 +30,16 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      patient:
+        email: "Email address"
+    errors:
+      models:
+        patient:
+          attributes:
+            email:
+              blank: "Email is required"
+              invalid: "Email should be a valid"
+
+

@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  mrn: MyString
+  zip: MyString
+  mobile_number: MyString
+  dob: 2020-09-30 20:42:42
+  is_insured: false
+
+two:
+  first_name: MyString
+  last_name: MyString
+  mrn: MyString
+  zip: MyString
+  mobile_number: MyString
+  dob: 2020-09-30 20:42:42
+  is_insured: false

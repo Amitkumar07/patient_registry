@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-xl-4 offset-xl-4 col-sm-12">
+    <h2>Sign up</h2>
+
+    <%= form_for @patient, as: :patient, url: '/patient', method: 'post', html: { class: "", id: "" } do |f| %>
+        <%= render "form", f: f %>
+
+    <% end %>
+
+  </div>
+</div>

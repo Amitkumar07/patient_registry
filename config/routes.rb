@@ -1,3 +1,27 @@
 Rails.application.routes.draw do
+
+  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
+
+  devise_scope :user do
+
+    authenticated :user do
+      root 'dashboard#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+
+  end
+
+  root 'dashboard#index', as: :root
+
+  resources :patient
+
+  get 'import/patient', to: 'import_data#import_patient'
+  post 'save/patient', to: 'import_data#save_patient'
+
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

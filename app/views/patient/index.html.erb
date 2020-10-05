@@ -1,0 +1,53 @@
+<div class="row mt-3">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <%= link_to "Import", import_patient_path, class:'btn btn-primary float-right ml-2' %>
+        <%= link_to "Create", new_patient_path, class:'btn btn-primary float-right' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered patient-list" data-total-patients="<%= @total_patients %>" data-total-pages="<%= @total_pages %>">
+          <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>MRN</th>
+            <th>Is Insured</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody id="patient-records">
+            <% if @patients %>
+              <%= render "list", patients: @patients, page: @page %>
+            <% end %>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div id="pagination"></div>
+
+<script>
+  $(document).ready(function(){
+      var pageList = $('.patient-list')
+      $('#pagination').bootstrapPaginator({
+          currentPage: $('.page-number').data('page'),
+          totalPages: pageList.data('total-pages'),
+          alignment: 'right',
+          pageUrl: function(type, page, current){
+              return window.location.href.split('?')[0] +'?page='+ page;
+          }
+          });
+
+  })
+</script>
+

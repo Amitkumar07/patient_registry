@@ -1,0 +1,9 @@
+<%= form_for @patient, as: :import, url: '/save/patient', method: 'post', html: { class: "", id: "" } do |f| %>
+    <div class="form-group">
+  <%= f.label :file, "Upload File" %>
+  <%= f.file_field :file, class: 'form-control-file', required: true %>
+</div>
+<%= button_tag do %>
+    <i class='icon-white icon-ok'></i> Upload File
+<% end %>
+<% end %>
