@@ -1,15 +1,15 @@
 class PatientController < ApplicationController
 
-  LIMIT = 10
+  before_action :page,:search_service, only: [:index]
+
+ LIMIT = 10
 
   def new
     @patient = Patient.new
   end
 
   def index
-    @total_patients = Patient.count
-    @total_pages = (Patient.count.to_f/LIMIT).ceil
-    get_patient(params[:page])
+    @patients, @total_patients ,@total_pages = @search_service.search(search_params, LIMIT)
   end
 
   def show
@@ -58,9 +58,17 @@ class PatientController < ApplicationController
     params.require(:patient).permit(:first_name, :last_name, :email, :zip, :mrn, :dob, :mobile_number, :is_insured)
   end
 
-  def get_patient(page)
-    @page = page.present? ? params[:page] : 1
-    @patients = Patient.offset((@page.to_i-1) * LIMIT).limit(LIMIT)
+  def search_params
+    params.permit(:sort_by, :order, :term, :is_insured, :page)
   end
+
+  def page
+    @page = search_params[:page].present? ? params[:page].to_i : 1
+  end
+
+  def search_service
+    @search_service = SearchService.new
+  end
+
 
 end

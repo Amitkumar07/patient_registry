@@ -18,8 +18,9 @@ Rails.application.routes.draw do
 
   resources :patient
 
-  get 'import/patient', to: 'import_data#import_patient'
-  post 'save/patient', to: 'import_data#save_patient'
+  get 'import/patient', to: 'import#import_patient'
+  post 'save/patient', to: 'import#save_patient'
+  get 'export/patient', to: 'export#create_file'
 
 
 

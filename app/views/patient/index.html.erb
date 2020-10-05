@@ -2,20 +2,24 @@
   <div class="col-12">
     <div class="row">
       <div class="col-12 mb-3">
+        <%= render "export_form" %>
         <%= link_to "Import", import_patient_path, class:'btn btn-primary float-right ml-2' %>
         <%= link_to "Create", new_patient_path, class:'btn btn-primary float-right' %>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <table class="table table-bordered patient-list" data-total-patients="<%= @total_patients %>" data-total-pages="<%= @total_pages %>">
+        <%= render "search_form" %>
+        <table class="table table-bordered patient-list mt-3" data-total-patients="<%= @total_patients %>" data-total-pages="<%= @total_pages %>">
           <thead>
           <tr>
-            <th>Full Name</th>
+            <th >Full Name <%= asc_sort_link(params.merge({order: 'asc', sort_by: 'full_name'})) %>
+              <%= desc_sort_link(params.merge({order: 'desc', sort_by: 'full_name'})) %> 	</th>
             <th>Email</th>
             <th>Mobile Number</th>
             <th>MRN</th>
-            <th>Is Insured</th>
+            <th>Is Insured <%= asc_sort_link(params.merge({order: 'asc', sort_by: 'is_insured'})) %>
+              <%= desc_sort_link(params.merge({order: 'desc', sort_by: 'is_insured'})) %></th>
             <th>Action</th>
           </tr>
           </thead>
@@ -44,7 +48,10 @@
           totalPages: pageList.data('total-pages'),
           alignment: 'right',
           pageUrl: function(type, page, current){
-              return window.location.href.split('?')[0] +'?page='+ page;
+              var currentUrl = window.location.href;
+              var url = new URL(currentUrl);
+              url.searchParams.set("page", page); // setting your param
+              return url.href;
           }
           });
 

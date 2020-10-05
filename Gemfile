@@ -37,6 +37,7 @@ gem 'roo-xls'
 gem 'json'
 gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store'
+gem 'sunspot_rails'
 
 
 
@@ -55,6 +56,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'sunspot_solr'
+  gem 'progress_bar'
 end
 
 group :test do
