@@ -7,6 +7,8 @@ Things you may want to cover:
 
 * Ruby version: 2.6.3
 
+* Rails version: >= 6.0.3.2
+
 * System dependencies: 
 sunspot solr gem is used 
 so before starting rails server run below command
